@@ -4,14 +4,14 @@ import {
     Input,
     OnDestroy,
     OnInit,
+    SimpleChanges,
     ViewChild,
     ViewEncapsulation,
-    SimpleChanges,
 } from '@angular/core';
-import videoJs from 'video.js';
-import 'videojs-hls-quality-selector';
-import 'videojs-contrib-quality-levels';
 import '@yangkghjh/videojs-aspect-ratio-panel';
+import videoJs from 'video.js';
+import 'videojs-contrib-quality-levels';
+import 'videojs-hls-quality-selector';
 
 /**
  * This component contains the implementation of video player that is based on video.js library
@@ -44,7 +44,7 @@ export class VjsPlayerComponent implements OnInit, OnDestroy {
                 this.volume(100);
             }
         );
-        this.player.hlsQualitySelector({
+        (this.player as any).hlsQualitySelector({
             displayCurrentQuality: true,
         });
         this.player['aspectRatioPanel']();
