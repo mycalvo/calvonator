@@ -23,8 +23,8 @@
     "scripts": {
         "postinstall": "electron-builder install-app-deps && husky install",
         "ng": "ng",
-        "start": "npm-run-all -p electron:serve ng:serve",
-        "build": "npm run electron:serve-tsc && ng build --base-href ./",
+        "start": "ng serve",
+        "build": "ng build",
         "build:electron": "npm run electron:serve-tsc",
         "build:dev": "npm run build -- -c dev",
         "build:prod": "npm run build -- -c production",
@@ -44,7 +44,8 @@
         "e2e:debug": "npm run build:electron && PWDEBUG=1 npx playwright test -c e2e/playwright.config.ts e2e/",
         "version": "conventional-changelog -i CHANGELOG.md -p angular -s -r 0 && git add CHANGELOG.md",
         "lint": "ng lint",
-        "build-pwa": "ng build -c production --base-href /iptvnator --deploy-url /iptvnator/"
+        "build-pwa": "ng build -c production --base-href /iptvnator --deploy-url /iptvnator/",
+        "tauri": "tauri"
     },
     "dependencies": {
         "@angular/animations": "14.0.6",
@@ -54,6 +55,7 @@
         "@datorama/akita": "7.1.1",
         "@electron/remote": "2.0.8",
         "@ngx-pwa/local-storage": "13.0.5",
+        "@tauri-apps/api": "^1.0.2",
         "@videojs/http-streaming": "2.13.1",
         "@yangkghjh/videojs-aspect-ratio-panel": "0.0.1",
         "about-window": "1.13.4",
@@ -107,6 +109,7 @@
         "@semantic-release/changelog": "6.0.1",
         "@semantic-release/git": "10.0.1",
         "@semantic-release/npm": "9.0.0",
+        "@tauri-apps/cli": "^1.0.4",
         "@types/chai": "4.3.0",
         "@types/jest": "28.1.5",
         "@types/mocha": "9.0.0",
